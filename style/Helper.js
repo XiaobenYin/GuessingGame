@@ -7,6 +7,7 @@ const color = {
     note: "#ffa500",
     purple: "#7b68ee",
     pink: "#ff00ff",
+    gole: "gold",
 }
 
 const styles = StyleSheet.create({

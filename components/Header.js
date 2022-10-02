@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, SafeAreaView, TextInput } from "react-native";
 import React, { useState } from "react";
+import { color } from "./style/Helper";
+
 
 export default function Starting({ appName }) {
   return (
@@ -17,7 +19,7 @@ const styles = StyleSheet.create({
   },
   border: {
     textAlign: "center",
-    color: "purple",
+    color: color.purple,
     fontSize: 20,
     fontWeight: "bold",
     width: 200,
@@ -25,6 +27,8 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    borderColor: color.purple,
+    borderWidth: 3
   },
   input: {
     borderBottomColor: "#0000231",
