@@ -3,10 +3,20 @@ import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import Starting from "./components/Starting";
 import Card from "./components/Card";
 import { LinearGradient } from "expo-linear-gradient";
-import {color} from "./style/Helper";
+import { color } from "./style/Helper";
+import StartGameScreen from "./screens/StartGameScreen";
+import React, { useState } from "react";
 
 export default function App() {
+  // const [modalVisible, setModalVisible] = useState(false);
+  // const makeModalVisible = () => {
+  //   setModalVisible(true);
+  // };
+  // const makeModalInvisible = () => {
+  //   setModalVisible(false);
+  // };
   const name = "Guess My Number";
+
   return (
     <LinearGradient
       colors={[color.bg1, color.bg2]}
@@ -17,7 +27,9 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <View>
           <Starting appName={name} />
-          <Card />
+          <StartGameScreen />
+
+          {/* <Card /> */}
         </View>
       </SafeAreaView>
     </LinearGradient>

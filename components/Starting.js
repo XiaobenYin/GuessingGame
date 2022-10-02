@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, SafeAreaView, TextInput } from "react-native";
 import React, { useState } from "react";
 
 export default function Starting({ appName }) {
-  const [text, setText] = useState("");
   return (
     <View style={styles.container}>
       <Text style={styles.border}>{appName}</Text>
@@ -14,13 +13,15 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 70,
   },
   border: {
     textAlign: "center",
     color: "purple",
-    fontSize: 16,
-    width: 180,
-    height: 40,
+    fontSize: 20,
+    fontWeight: "bold",
+    width: 200,
+    height: 50,
     margin: 12,
     borderWidth: 1,
     padding: 10,
