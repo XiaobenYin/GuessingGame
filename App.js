@@ -6,6 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { color } from "./style/Helper";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
+import GameOverScreen from "./screens/GameOverScreen";
 import React, { useState } from "react";
 
 const getRandomNumber = () => {
@@ -16,63 +17,79 @@ const getRandomNumber = () => {
 };
 
 export default function App() {
+  const [modalVisible, setModalVisible] = useState(false);
   const [target, setTarget] = useState(getRandomNumber());
   const [guess, setGuess] = useState(null);
-  const [gameStart, setGameStart] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+
+  const makeModalVisible = () => {
+    setModalVisible(true);
+  };
+  const makeModalInvisible = () => {
+    setModalVisible(false);
+  };
 
   const newGame = () => {
     setTarget(getRandomNumber());
     setGuess(null);
-    setGameStart(false);
     setGameOver(false);
   };
 
   function userGuessHandler(userGuess) {
     setGuess(userGuess);
+    makeModalVisible();
+    setGameOver(false);
   }
 
+  const gameContinue = () => {
+    makeModalInvisible();
+    setGameOver(false);
+  };
+
+  const gameIsOver = () => {
+    setGameOver(true);
+    makeModalInvisible();
+  };
+
   let screen = <StartGameScreen onGuessNumber={userGuessHandler} />;
-  if (guess) {
-    screen = <GameScreen onGuessNumber={userGuessHandler} onTargetNumber={target}/>;
+  if (modalVisible) {
+    screen = (
+      <GameScreen
+        modal={modalVisible}
+        onGuessNumber={guess}
+        onTargetNumber={target}
+        onContinueGame={gameContinue}
+        onGameOver={gameIsOver}
+      />
+    );
+  } else if (gameOver) {
+    screen = <GameOverScreen />;
   }
 
   const startNewGame = (userGuess) => {
     setGameOver(false);
-    setGameStart(true);
+    setGameStarted(true);
     setGuess(userGuess);
   };
 
   const endGame = () => {
     setGameOver(true);
-    setGameStart(false);
+    setGameStarted(false);
   };
 
-  // const [modalVisible, setModalVisible] = useState(false);
-  // const makeModalVisible = () => {
-  //   setModalVisible(true);
-  // };
-  // const makeModalInvisible = () => {
-  //   setModalVisible(false);
-  // };
-
-
   return (
-    <LinearGradient
-      colors={[color.bg1, color.bg2]}
-      style={styles.container}
-      start={{ x: 1, y: 1 }}
-      end={{ x: 0, y: 0 }}
-    >
-      <SafeAreaView style={styles.container}>
-
-        <View>
-          {screen}
-
-          {/* <Card /> */}
-        </View>
-      </SafeAreaView>
-    </LinearGradient>
+      <LinearGradient
+        colors={[color.bg1, color.bg2]}
+        style={styles.container}
+        start={{ x: 1, y: 1 }}
+        end={{ x: 0, y: 0 }}
+      >
+        <SafeAreaView style={styles.container}>
+          <View>
+            {screen}
+          </View>
+        </SafeAreaView>
+      </LinearGradient>
   );
 }
 

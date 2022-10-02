@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, SafeAreaView, TextInput } from "react-native";
 import React, { useState } from "react";
-import { color } from "./style/Helper";
+import { color } from "../style/Helper";
 
 
 export default function Starting({ appName }) {

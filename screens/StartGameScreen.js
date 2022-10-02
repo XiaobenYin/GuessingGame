@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import Card from "../components/Card";
 import { useState } from "react";
 import Header from "../components/Header";
-import { color } from "./style/Helper";
+import { color } from "../style/Helper";
 
 
 
