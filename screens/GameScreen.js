@@ -11,7 +11,7 @@ import { useState } from "react";
 import { color } from "../style/Helper";
 import { LinearGradient } from "expo-linear-gradient";
 import TwoButton from "../components/TwoButton";
-
+import ThankYouButton from "../components/ThankYouButton";
 
 function message(guess, target) {
   if (guess < target) {
@@ -49,7 +49,7 @@ export default function GameScreen({
                 {notes}
               </Text>
               <View style={styles.button}>
-                {notes !== "Congrats! You won!"?<TwoButton onContinueGame={onContinueGame} onGameOver={onGameOver}/>:<Button title="Thank you!" onPress={onGameOver}></Button>}
+                {notes !== "Congrats! You won!"?<TwoButton onContinueGame={onContinueGame} onGameOver={onGameOver}/>:<ThankYouButton onGameOver={onGameOver}/>}
               </View>
             </Card>
           </View>

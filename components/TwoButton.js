@@ -1,15 +1,8 @@
 import {
-  Text,
   View,
   StyleSheet,
   Button,
-  Modal,
-  SafeAreaView,
 } from "react-native";
-import Card from "./Card";
-import { useState } from "react";
-import { color } from "../style/Helper";
-import { LinearGradient } from "expo-linear-gradient";
 
 export default function TwoButton({ onContinueGame, onGameOver }) {
   return (

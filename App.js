@@ -64,7 +64,7 @@ export default function App() {
       />
     );
   } else if (gameOver) {
-    screen = <GameOverScreen modal={modalVisible} onNewGame={newGame}/>;
+    screen = <GameOverScreen modal={modalVisible} onNewGame={newGame} onGuessNumber={guess} onTargetNumber={target}/>;
   }
 
   // const startNewGame = (userGuess) => {
