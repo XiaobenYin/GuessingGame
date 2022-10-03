@@ -10,6 +10,8 @@ import Card from "../components/Card";
 import { useState } from "react";
 import { color } from "../style/Helper";
 import { LinearGradient } from "expo-linear-gradient";
+import TwoButton from "../components/TwoButton";
+
 
 function message(guess, target) {
   if (guess < target) {
@@ -17,12 +19,19 @@ function message(guess, target) {
   } else if (guess > target) {
     return <Text>That's not my number!{"\n"}Guess lower!</Text>;
   } else {
-    return <Text>You won!</Text>;
+    return "Congrats! You won!";
   }
 }
 
-function GameScreen({ onGuessNumber, onTargetNumber, modal, onContinueGame, onGameOver }) {
+export default function GameScreen({
+  onGuessNumber,
+  onTargetNumber,
+  modal,
+  onContinueGame,
+  onGameOver,
+}) {
   const notes = message(onGuessNumber, onTargetNumber);
+
   return (
     <Modal visible={modal} statusBarTranslucent={true}>
       <LinearGradient
@@ -40,12 +49,7 @@ function GameScreen({ onGuessNumber, onTargetNumber, modal, onContinueGame, onGa
                 {notes}
               </Text>
               <View style={styles.button}>
-                <Button title="I am done" color="#8a2be2" onPress={onGameOver}></Button>
-                <Button
-                  title="Let Me Guess Again"
-                  color="#FF1493"
-                  onPress={onContinueGame}
-                ></Button>
+                {notes !== "Congrats! You won!"?<TwoButton onContinueGame={onContinueGame} onGameOver={onGameOver}/>:<Button title="Thank you!" onPress={onGameOver}></Button>}
               </View>
             </Card>
           </View>
@@ -54,8 +58,6 @@ function GameScreen({ onGuessNumber, onTargetNumber, modal, onContinueGame, onGa
     </Modal>
   );
 }
-
-export default GameScreen;
 
 const styles = StyleSheet.create({
   container: {

@@ -7,7 +7,7 @@ import { color } from "../style/Helper";
 
 
 
-function StartGameScreen({ onGuessNumber }) {
+export default function StartGameScreen({ onGuessNumber }) {
   const name = "Guess My Number";
   const [text, setText] = useState("");
   const resetHandler = () => {
@@ -52,8 +52,6 @@ function StartGameScreen({ onGuessNumber }) {
     </View>
   );
 }
-
-export default StartGameScreen;
 
 const styles = StyleSheet.create({
   instruction: {

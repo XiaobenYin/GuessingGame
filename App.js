@@ -51,6 +51,7 @@ export default function App() {
     makeModalInvisible();
   };
 
+
   let screen = <StartGameScreen onGuessNumber={userGuessHandler} />;
   if (modalVisible) {
     screen = (
@@ -63,33 +64,31 @@ export default function App() {
       />
     );
   } else if (gameOver) {
-    screen = <GameOverScreen />;
+    screen = <GameOverScreen modal={modalVisible} onNewGame={newGame}/>;
   }
 
-  const startNewGame = (userGuess) => {
-    setGameOver(false);
-    setGameStarted(true);
-    setGuess(userGuess);
-  };
+  // const startNewGame = (userGuess) => {
+  //   setGameOver(false);
+  //   setGameStarted(true);
+  //   setGuess(userGuess);
+  // };
 
-  const endGame = () => {
-    setGameOver(true);
-    setGameStarted(false);
-  };
+  // const endGame = () => {
+  //   setGameOver(true);
+  //   setGameStarted(false);
+  // };
 
   return (
-      <LinearGradient
-        colors={[color.bg1, color.bg2]}
-        style={styles.container}
-        start={{ x: 1, y: 1 }}
-        end={{ x: 0, y: 0 }}
-      >
-        <SafeAreaView style={styles.container}>
-          <View>
-            {screen}
-          </View>
-        </SafeAreaView>
-      </LinearGradient>
+    <LinearGradient
+      colors={[color.bg1, color.bg2]}
+      style={styles.container}
+      start={{ x: 1, y: 1 }}
+      end={{ x: 0, y: 0 }}
+    >
+      <SafeAreaView style={styles.container}>
+        <View>{screen}</View>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
