@@ -42,10 +42,10 @@ export default function StartGameScreen({ onGuessNumber }) {
         <TextInput />
         <View style={styles.buttonsContainer}>
           <View style={styles.cancelButton}>
-            <Button title="Reset" color="#8a2be2" onPress={resetHandler} />
+            <Button title="Reset" color={color.reset} onPress={resetHandler} />
           </View>
           <View style={styles.confirmButton}>
-            <Button title="Confirm" color="#FF1493" onPress={confirmHandler} />
+            <Button title="Confirm" color={color.confirm} onPress={confirmHandler} />
           </View>
         </View>
       </Card>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   cancelButton: {
     margin: 5,
     width: "30%",
-    color: "#8a2be2",
+    color: color.reset,
   },
   confirmButton: {
     margin: 5,

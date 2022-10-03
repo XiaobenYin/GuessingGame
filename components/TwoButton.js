@@ -3,14 +3,15 @@ import {
   StyleSheet,
   Button,
 } from "react-native";
+import { color } from "../style/Helper";
 
 export default function TwoButton({ onContinueGame, onGameOver }) {
   return (
     <View styles={styles.container}>
-      <Button title="I am done" color="#8a2be2" onPress={onGameOver}></Button>
+      <Button title="I am done" color={color.reset} onPress={onGameOver}></Button>
       <Button
         title="Let Me Guess Again"
-        color="#FF1493"
+        color={color.confirm}
         onPress={onContinueGame}
       ></Button>
     </View>

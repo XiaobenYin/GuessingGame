@@ -1,7 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
-import Header from "./components/Header";
-import Card from "./components/Card";
+import { StyleSheet, View, SafeAreaView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { color } from "./style/Helper";
 import StartGameScreen from "./screens/StartGameScreen";
@@ -66,17 +63,6 @@ export default function App() {
   } else if (gameOver) {
     screen = <GameOverScreen modal={modalVisible} onNewGame={newGame} onGuessNumber={guess} onTargetNumber={target}/>;
   }
-
-  // const startNewGame = (userGuess) => {
-  //   setGameOver(false);
-  //   setGameStarted(true);
-  //   setGuess(userGuess);
-  // };
-
-  // const endGame = () => {
-  //   setGameOver(true);
-  //   setGameStarted(false);
-  // };
 
   return (
     <LinearGradient

@@ -8,6 +8,9 @@ const color = {
     purple: "#7b68ee",
     pink: "#ff00ff",
     gold: "gold",
+    reset: "#8a2be2",
+    confirm: "#FF1493",
+
 }
 
 const height = {

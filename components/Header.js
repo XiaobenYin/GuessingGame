@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, SafeAreaView, TextInput } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { color } from "../style/Helper";
 
 

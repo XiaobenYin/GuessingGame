@@ -3,11 +3,8 @@ import {
   View,
   StyleSheet,
   Button,
-  Modal,
-  SafeAreaView,
   Image,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 import { color } from "../style/Helper";
 import Card from "../components/Card";
 import Header from "../components/Header";
@@ -48,7 +45,7 @@ export default function GameOverScreen({
         {img}
         <Button
           title="Start Again"
-          color="#FF1493"
+          color={color.confirm}
           onPress={onNewGame}
         ></Button>
       </Card>
